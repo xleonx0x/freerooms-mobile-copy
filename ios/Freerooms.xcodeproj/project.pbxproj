@@ -12,6 +12,7 @@
 
 /* Begin PBXFileReference section */
 		96D65EDC2DA39DDA0060D06B /* Buildings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Buildings; sourceTree = "<group>"; };
+		96D65EF52DA3A2400060D06B /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		96F9AFCA2D9BCC1200671174 /* Freerooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freerooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -38,6 +39,8 @@
 		96D65EDD2DA39EA30060D06B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96D65EF52DA3A2400060D06B /* Networking */,
+				96D65EDC2DA39DDA0060D06B /* Buildings */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -45,7 +48,6 @@
 		96F9AFC12D9BCC1200671174 = {
 			isa = PBXGroup;
 			children = (
-				96D65EDC2DA39DDA0060D06B /* Buildings */,
 				96F9AFCC2D9BCC1200671174 /* Freerooms */,
 				96D65EDD2DA39EA30060D06B /* Frameworks */,
 				96F9AFCB2D9BCC1200671174 /* Products */,
