@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		96D65EDF2DA39EA30060D06B /* Buildings in Frameworks */ = {isa = PBXBuildFile; productRef = 96D65EDE2DA39EA30060D06B /* Buildings */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		96D65EDC2DA39DDA0060D06B /* Buildings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Buildings; sourceTree = "<group>"; };
 		96F9AFCA2D9BCC1200671174 /* Freerooms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freerooms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -23,16 +28,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D65EDF2DA39EA30060D06B /* Buildings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96D65EDD2DA39EA30060D06B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		96F9AFC12D9BCC1200671174 = {
 			isa = PBXGroup;
 			children = (
+				96D65EDC2DA39DDA0060D06B /* Buildings */,
 				96F9AFCC2D9BCC1200671174 /* Freerooms */,
+				96D65EDD2DA39EA30060D06B /* Frameworks */,
 				96F9AFCB2D9BCC1200671174 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +81,7 @@
 			);
 			name = Freerooms;
 			packageProductDependencies = (
+				96D65EDE2DA39EA30060D06B /* Buildings */,
 			);
 			productName = Freerooms;
 			productReference = 96F9AFCA2D9BCC1200671174 /* Freerooms.app */;
@@ -337,6 +353,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96D65EDE2DA39EA30060D06B /* Buildings */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Buildings;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96F9AFC22D9BCC1200671174 /* Project object */;
 }
