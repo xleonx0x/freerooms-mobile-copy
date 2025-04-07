@@ -2,7 +2,7 @@
 
 This is the native iOS mobile client for Freerooms. Freerooms is designed to help UNSW students easily find and browse available rooms and study spaces on campus. Built with speed, simplicity, and student experience in mind.
 
-# Planned features
+# Planned Features
 
 For 2025 we're aiming to have the following features on iOS to reach parity with the web application:
 
@@ -26,15 +26,38 @@ For 2025 we're aiming to have the following features on iOS to reach parity with
 
 ## Installation
 
-1. Clone the repo:
+1. Install Homebrew [here](https://brew.sh/)
+
+2. Install SwiftLint:
+
+```console
+$ brew install swiftlint
+```
+
+3. Install SwiftFormat:
+
+```console
+$ brew install swiftformat
+```
+
+4. Clone the repo:
 
 ```console
 $ git clone https://github.com/devsoc-unsw/freerooms-mobile.git
 ```
 
-2. Open `Freerooms.xcodeproj` in Xcode
+5. Open `Freerooms.xcodeproj` in Xcode
 
-3. Build and run the app on a simulator or your device using the `Freerooms` scheme
+6. Build and run the app on a simulator or your device using the `Freerooms` scheme
+
+# Linting and Formatting
+This project uses [AirBnb's Swift style guide](https://github.com/airbnb/swift). SwiftLint and SwiftFormat are used to lint and format respectively, adhering to the style guide as closely as possible. After installation via Homebrew, they will run automatically on every build/
+
+To run them manually rather than on every build/commit/push, run the following commands in the `/ios` directory:
+```console
+$ swiftformat .
+$ swiftlint
+```
 
 # Architecture
 
