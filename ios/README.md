@@ -51,7 +51,7 @@ $ git clone https://github.com/devsoc-unsw/freerooms-mobile.git
 6. Build and run the app on a simulator or your device using the `Freerooms` scheme
 
 # Linting and Formatting
-This project uses [AirBnb's Swift style guide](https://github.com/airbnb/swift). SwiftLint and SwiftFormat are used to lint and format respectively, adhering to the style guide as closely as possible. After installation via Homebrew, they will run automatically on every build/
+This project uses [AirBnb's Swift style guide](https://github.com/airbnb/swift). SwiftLint and SwiftFormat are used to lint and format respectively, adhering to the style guide as closely as possible. After installation via Homebrew, they will run automatically on every build/commit/push.
 
 To run them manually rather than on every build/commit/push, run the following commands in the `/ios` directory:
 ```console
