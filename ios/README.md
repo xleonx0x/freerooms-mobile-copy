@@ -46,9 +46,16 @@ $ brew install swiftformat
 $ git clone https://github.com/devsoc-unsw/freerooms-mobile.git
 ```
 
-5. Open `Freerooms.xcodeproj` in Xcode
+5. Install the custom git hooks (run the following commands from the `/freerooms-mobile` directory, not `/freerooms-mobile/ios`):
 
-6. Build and run the app on a simulator or your device using the `Freerooms` scheme
+```console
+$ chmod +x install-hooks.sh
+$ ./install-hooks.sh
+```
+
+6. Open `Freerooms.xcodeproj` in Xcode
+
+7. Build and run the app on a simulator or your device using the `Freerooms` scheme
 
 # Linting and Formatting
 This project uses [AirBnb's Swift style guide](https://github.com/airbnb/swift). SwiftLint and SwiftFormat are used to lint and format respectively, adhering to the style guide as closely as possible. After installation via Homebrew, they will run automatically on every build/commit/push.

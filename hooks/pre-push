@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Place appropriately named executable hook scripts into this directory
+# to intercept various actions that git takes.  See `git help hooks` for
+# more information.
+if command -v swiftformat >/dev/null 2>&1
+then
+    echo "Running SwiftFormat"
+    swiftformat .
+else
+    echo "Warning: `swiftformat` command not found - run the command: brew install swiftformat"
+fi
+
+if command -v swiftlint >/dev/null 2>&1
+then
+    echo "Running SwiftLint"
+    swiftlint
+else
+    echo "Warning: `swiftlint` command not found - run the command: brew install swiftlint"
+fi
