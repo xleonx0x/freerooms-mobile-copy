@@ -20,7 +20,7 @@ For 2025 we're aiming to have the following features on iOS to reach parity with
 
 ## Prerequisites
 
-- Xcode 16+
+- Xcode 16.3+
 
 - iOS 17+ device or simulator
 
