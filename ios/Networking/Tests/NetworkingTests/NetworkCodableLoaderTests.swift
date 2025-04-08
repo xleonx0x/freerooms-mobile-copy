@@ -39,12 +39,7 @@ final class NetworkCodableLoaderTests {
     let (client, sut) = makeSut()
     client.setNextRequestToFailWithClientError()
 
-    switch await sut.fetch() {
-    case .success(let response):
-      Issue.record("Expected an error but got \(response)")
-    case .failure(let error):
-      #expect(error as? SUT.Error == SUT.Error.connectivity)
-    }
+    await expect(sut, toThrow: SUT.Error.connectivity)
     #expect(client.networkCallCount == 1)
   }
 
@@ -54,12 +49,7 @@ final class NetworkCodableLoaderTests {
     let (client, sut) = makeSut()
     client.setNextRequestToSucceedWithReturnedData(try? JSONEncoder().encode(1))
 
-    switch await sut.fetch() {
-    case .success(let response):
-      Issue.record("Expected an error but got \(response)")
-    case .failure(let error):
-      #expect(error as? SUT.Error == SUT.Error.invalidData)
-    }
+    await expect(sut, toThrow: SUT.Error.invalidData)
     #expect(client.networkCallCount == 1)
   }
 
@@ -69,12 +59,7 @@ final class NetworkCodableLoaderTests {
     let (client, sut) = makeSut()
     client.setNextRequestToSucceedWithStatusCode(code)
 
-    switch await sut.fetch() {
-    case .success(let response):
-      Issue.record("Expected an error but got \(response)")
-    case .failure(let error):
-      #expect(error as? SUT.Error == SUT.Error.invalidData)
-    }
+    await expect(sut, toThrow: SUT.Error.invalidData)
     #expect(client.networkCallCount == 1)
   }
 
@@ -84,15 +69,7 @@ final class NetworkCodableLoaderTests {
     let (client, sut) = makeSut()
     client.setNextRequestToSucceedWithReturnedData("".data)
 
-    var receivedString: String?
-    switch await sut.fetch() {
-    case .success(let fetchedString):
-      receivedString = fetchedString
-    case .failure(let error):
-      Issue.record("Expected an empty string but got \(error)")
-    }
-
-    #expect(receivedString?.isEmpty == true)
+    await expect(sut, toFetch: "")
     #expect(client.networkCallCount == 1)
   }
 
@@ -103,15 +80,7 @@ final class NetworkCodableLoaderTests {
     let expectedString = makeUniqueString()
     client.setNextRequestToSucceedWithReturnedData(expectedString.data)
 
-    var receivedString: String?
-    switch await sut.fetch() {
-    case .success(let fetchedString):
-      receivedString = fetchedString
-    case .failure(let error):
-      Issue.record("Expected \(expectedString) but got \(error)")
-    }
-
-    #expect(receivedString == expectedString)
+    await expect(sut, toFetch: expectedString)
     #expect(client.networkCallCount == 1)
   }
 
@@ -122,28 +91,13 @@ final class NetworkCodableLoaderTests {
     var expectedString = makeUniqueString()
     client.setNextRequestToSucceedWithReturnedData(expectedString.data)
 
-    var receivedString: String?
-    switch await sut.fetch() {
-    case .success(let fetchedString):
-      receivedString = fetchedString
-    case .failure(let error):
-      Issue.record("Expected \(expectedString) but got \(error)")
-    }
-
-    #expect(receivedString == expectedString)
+    await expect(sut, toFetch: expectedString)
     #expect(client.networkCallCount == 1)
 
     expectedString = makeUniqueString()
     client.setNextRequestToSucceedWithReturnedData(expectedString.data)
 
-    switch await sut.fetch() {
-    case .success(let fetchedString):
-      receivedString = fetchedString
-    case .failure(let error):
-      Issue.record("Expected \(expectedString) but got \(error)")
-    }
-
-    #expect(receivedString == expectedString)
+    await expect(sut, toFetch: expectedString)
     #expect(client.networkCallCount == 2)
   }
 
@@ -162,6 +116,28 @@ final class NetworkCodableLoaderTests {
 
   private func makeUniqueString() -> String {
     UUID().uuidString
+  }
+
+  private func expect(_ sut: SUT, toThrow error: SUT.Error, sourceLocation: SourceLocation = #_sourceLocation) async {
+    switch await sut.fetch() {
+    case .success(let response):
+      Issue.record("Expected an error but got \(response)", sourceLocation: sourceLocation)
+    case .failure(let receivedError):
+      #expect(receivedError as? SUT.Error == error, sourceLocation: sourceLocation)
+    }
+  }
+
+  private func expect(_ sut: SUT, toFetch string: String, sourceLocation: SourceLocation = #_sourceLocation) async {
+    var receivedString: String?
+
+    switch await sut.fetch() {
+    case .success(let fetchedString):
+      receivedString = fetchedString
+    case .failure(let error):
+      Issue.record("Expected \(string) but got \(error)", sourceLocation: sourceLocation)
+    }
+
+    #expect(receivedString == string, sourceLocation: sourceLocation)
   }
 }
 
