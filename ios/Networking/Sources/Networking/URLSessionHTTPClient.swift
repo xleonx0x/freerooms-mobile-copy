@@ -31,3 +31,34 @@ public struct URLSessionHTTPClient: HTTPClient {
     }
   }
 }
+
+// MARK: - URLSessionProtocol
+
+public protocol URLSessionProtocol {
+  func data(from url: URL) async throws -> (Data, URLResponse)
+}
+
+// MARK: - URLSession + URLSessionProtocol
+@available(macOS 12.0, *)
+extension URLSession: URLSessionProtocol { }
+
+// MARK: - MockURLSession
+
+public struct MockURLSession: URLSessionProtocol {
+  public var data: Data
+  public var urlResponse: URLResponse
+  public var error: Error?
+
+  public init(data: Data, urlResponse: URLResponse, error: Error? = nil) {
+    self.data = data
+    self.urlResponse = urlResponse
+    self.error = error
+  }
+
+  public func data(from _: URL) async throws -> (Data, URLResponse) {
+    guard let error = error else {
+      return (data, urlResponse)
+    }
+    throw error
+  }
+}
