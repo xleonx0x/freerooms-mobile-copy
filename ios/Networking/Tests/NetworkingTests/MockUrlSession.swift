@@ -5,8 +5,8 @@
 //  Created by Chris Wong on 27/4/2025.
 //
 
-import Networking
 import Foundation
+import Networking
 
 public struct MockURLSession: HTTPSession {
   public var data: Data
@@ -20,10 +20,9 @@ public struct MockURLSession: HTTPSession {
   }
 
   public func data(from _: URL) async throws -> (Data, URLResponse) {
-    guard let error else {
-      return (data, urlResponse)
+    if let error {
+      throw error
     }
-    throw error
+    return (data, urlResponse)
   }
 }
-
