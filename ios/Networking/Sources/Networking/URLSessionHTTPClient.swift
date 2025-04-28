@@ -14,8 +14,8 @@ public struct URLSessionHTTPClient: HTTPClient {
 
   // MARK: Lifecycle
 
-  public init(urlSession: HTTPSession) {
-    session = urlSession
+  public init(session: HTTPSession) {
+    self.session = session
   }
 
   // MARK: Public

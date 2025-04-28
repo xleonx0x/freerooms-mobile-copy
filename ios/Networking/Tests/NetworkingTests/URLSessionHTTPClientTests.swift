@@ -13,12 +13,11 @@ struct URLSessionHTTPClientTests {
 
   // MARK: Internal
 
-  /// Simulates a successful connection and response from the server
   @Test("Client returns data and response on successful network request")
   func successfulConnectionAndResponse() async throws {
     // Given
     let mockURLSession = MockURLSession(data: Data(), urlResponse: HTTPURLResponse())
-    let sut = URLSessionHTTPClient(urlSession: mockURLSession)
+    let sut = URLSessionHTTPClient(session: mockURLSession)
 
     // When
     let res = await sut.get(from: URL(string: "www.fake.com")!)
@@ -27,7 +26,6 @@ struct URLSessionHTTPClientTests {
     expect(res, toFetch: mockURLSession.data, and: mockURLSession.urlResponse)
   }
 
-  /// Simulates connection lost during request
   @Test("Client returns network failure error on network connection lost")
   func connectionLostDuringRequest() async throws {
     // Given
@@ -35,7 +33,7 @@ struct URLSessionHTTPClientTests {
       data: Data(),
       urlResponse: HTTPURLResponse(),
       error: URLError(.networkConnectionLost))
-    let sut = URLSessionHTTPClient(urlSession: mockUrlSession)
+    let sut = URLSessionHTTPClient(session: mockUrlSession)
 
     // When
     let res = await sut.get(from: URL(string: "www.fake.com")!)
@@ -44,12 +42,11 @@ struct URLSessionHTTPClientTests {
     expect(res, toThrow: HTTPClientError.networkFailure)
   }
 
-  /// Simulates an invalid http response received
   @Test("Client returns invalid http error on invalid http response")
   func invalidHTTPResponse() async throws {
     // Given
     let mockUrlSession = MockURLSession(data: Data(), urlResponse: URLResponse())
-    let sut = URLSessionHTTPClient(urlSession: mockUrlSession)
+    let sut = URLSessionHTTPClient(session: mockUrlSession)
 
     // When
     let res = await sut.get(from: URL(string: "www.fake.com")!)
@@ -58,7 +55,6 @@ struct URLSessionHTTPClientTests {
     expect(res, toThrow: HTTPClientError.invalidHTTPResponse)
   }
 
-  /// Simulates no internet connection when making request
   @Test("Client returns network failure error on no internet connection")
   func noInternetConnection() async throws {
     // Given
@@ -66,7 +62,7 @@ struct URLSessionHTTPClientTests {
       data: Data(),
       urlResponse: URLResponse(),
       error: URLError(.notConnectedToInternet))
-    let sut = URLSessionHTTPClient(urlSession: mockUrlSession)
+    let sut = URLSessionHTTPClient(session: mockUrlSession)
 
     // When
     let res = await sut.get(from: URL(string: "www.fake.com")!)
@@ -75,12 +71,11 @@ struct URLSessionHTTPClientTests {
     expect(res, toThrow: HTTPClientError.networkFailure)
   }
 
-  /// Simulates an unknown error is thrown and caught
   @Test("Client returns network failure error when any error is thrown")
   func unknownError() async throws {
     // Given
     let mockUrlSession = MockURLSession(data: Data(), urlResponse: URLResponse(), error: URLError(.unknown))
-    let sut = URLSessionHTTPClient(urlSession: mockUrlSession)
+    let sut = URLSessionHTTPClient(session: mockUrlSession)
 
     // When
     let res = await sut.get(from: URL(string: "www.fake.com")!)
