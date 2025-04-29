@@ -9,7 +9,6 @@ import Buildings
 import Foundation
 import Observation
 
-
 @Observable
 final class MapViewModel {
 
@@ -22,17 +21,14 @@ final class MapViewModel {
 
   // MARK: Internal
 
-  
   var buildings: [Building] = []
 
-  
   func loadBuildings() {
     buildings = buildingService.getBuildings()
   }
 
   // MARK: Private
 
-  
   private let buildingService: BuildingService
 
 }
