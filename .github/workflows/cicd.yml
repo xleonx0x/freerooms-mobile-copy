@@ -6,6 +6,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  env:
+    DEVELOPER_DIR: /Applications/Xcode_16.3.app/Contents/Developer
 
 jobs:
   lint:
@@ -13,31 +15,30 @@ jobs:
     runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
-    - name: run lint
-      run: swiftlint .
+      working-directory: ios
+    - name: GitHub Action for SwiftLint
+      uses: norio-nomura/action-swiftlint@3.2.1
   tests:
     name: Run tests
     runs-on: macos-15
+    defaults:
+      run:
+        working-directory: ios
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Xcode version
-      run: sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
     - name: Run Networking tests
       run: xcodebuild test -scheme Networking
-      working-directory: ios
     - name: Run Location tests
       run: xcodebuild test -scheme Location
-      working-directory: ios
     - name: Run Buildings tests
       run: xcodebuild test -scheme Buildings
-      working-directory: ios
   build:
     name: Run build
     runs-on: macos-15
+    defaults:
+      run:
+        working-directory: ios
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Xcode version
-      run: sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
     - name: build swift project
       run: xcodebuild
-      working-directory: ios
