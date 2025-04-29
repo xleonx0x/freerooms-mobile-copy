@@ -1,0 +1,8 @@
+version: "Apple Swift version 6.1 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)"
+options: "b4c18e985642d240f9f453954cc6d517de5c89b8edb0f71f0024bba73b87059e"
+build_start_time: [1745936602, 251357000]
+build_end_time: [1745936602, 903978000]
+inputs:
+  "/Users/cw/repos/freerooms-mobile-copy/ios/Buildings/Sources/Buildings/Building.swift": [1745936546, 925537469]
+  "/Users/cw/repos/freerooms-mobile-copy/ios/Buildings/Sources/Buildings/BuildingInteractor.swift": [1745936546, 925659299]
+  "/Users/cw/repos/freerooms-mobile-copy/ios/Buildings/Sources/Buildings/BuildingService.swift": [1745936546, 925781212]

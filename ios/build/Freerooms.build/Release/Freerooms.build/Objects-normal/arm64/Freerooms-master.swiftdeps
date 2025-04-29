@@ -1,0 +1,11 @@
+version: "Apple Swift version 6.1 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)"
+options: "a6f57aab754f40a08e1cc41def3f7e8098b112a73b8271cdef73500732239276"
+build_start_time: [1745936849, 642270000]
+build_end_time: [1745936850, 559574000]
+inputs:
+  "/Users/cw/repos/freerooms-mobile-copy/ios/Freerooms/ContentView.swift": !dirty [1745936546, 927273334]
+  "/Users/cw/repos/freerooms-mobile-copy/ios/Freerooms/FreeroomsApp.swift": !dirty [1745936546, 927500743]
+  "/Users/cw/repos/freerooms-mobile-copy/ios/Freerooms/MapView.swift": !dirty [1745936546, 927727611]
+  "/Users/cw/repos/freerooms-mobile-copy/ios/Freerooms/MapViewModel.swift": !dirty [1745936546, 927848483]
+  ? "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : !dirty [1745936774, 95410990]
