@@ -19,6 +19,8 @@ jobs:
       uses: norio-nomura/action-swiftlint@3.2.1
       env:
         WORKING_DIRECTORY: ios
+      with:
+        args: --strict
   tests:
     name: Run tests
     runs-on: macos-15
