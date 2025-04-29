@@ -11,18 +11,16 @@ env:
 
 jobs:
   lint:
-    name: Run lint
+    name: Lint
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: GitHub Action for SwiftLint
       uses: norio-nomura/action-swiftlint@3.2.1
-      env:
-        WORKING_DIRECTORY: ios
       with:
         args: --strict
   tests:
-    name: Run tests
+    name: Tests
     runs-on: macos-15
     defaults:
       run:
@@ -36,7 +34,7 @@ jobs:
     - name: Run Buildings tests
       run: xcodebuild test -scheme Buildings
   build:
-    name: Run build
+    name: Build
     runs-on: macos-15
     defaults:
       run:
