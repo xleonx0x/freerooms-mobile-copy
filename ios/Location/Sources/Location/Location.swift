@@ -8,4 +8,5 @@
 struct Location {
   // TODO: Add properties to represent a (map) location
   // hello
+  // test
 }
