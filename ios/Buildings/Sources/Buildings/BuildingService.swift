@@ -6,10 +6,15 @@
 //
 
 import Foundation
-// Made this public to avoid out of scope error for MapViewModel
-public class BuildingService {
-  public init() {}
-    
+
+public final class BuildingService {
+
+  // MARK: Lifecycle
+
+  public init() { }
+
+  // MARK: Public
+
   public func getBuildings() -> [Building] {
     fatalError("TODO: Implement")
   }
