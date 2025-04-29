@@ -1,21 +1,27 @@
-name: build-and-test
-
+name: Build
+ 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+ 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+ 
 jobs:
-  tests:
-    runs-on: macos-15
+  build:
+    name: Build and test
+    runs-on: macos-latest
     steps:
-      - uses: swift-actions/setup-swift@v2
-
-      - name: Get swift version
-        run: swift --version
-
-      - uses: actions/checkout@v4
-
-      - name: Test
-        run: cd ios && xcodebuild test -scheme Networkingachmen
+    - uses: actions/checkout@v4
+    - name: List available Xcode versions
+      run: ls /Applications | grep Xcode
+    - name: Set up Xcode version
+      run: sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
+    - name: Show current version of Xcode
+      run: xcodebuild -version
+    - name: Run tests
+      run: cd ios && xcodebuild test -scheme Networking
