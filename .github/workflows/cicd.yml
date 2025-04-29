@@ -12,7 +12,6 @@ env:
 jobs:
   lint:
     name: Run lint
-    runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
     - name: GitHub Action for SwiftLint
