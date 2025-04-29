@@ -9,7 +9,6 @@ on:
 jobs:
   tests:
     runs-on: macos-15
-    container: swift:6.1
     steps:
     - uses: actions/checkout@v4
     - name: Test
