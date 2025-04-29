@@ -1,27 +1,24 @@
-name: Build
- 
+name: Freerooms CI/CD
+
 on:
   workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
- 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
- 
+
 jobs:
   build:
-    name: Build and test
+    name: Build project
     runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
-    - name: List available Xcode versions
-      run: ls /Applications | grep Xcode
     - name: Set up Xcode version
       run: sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
-    - name: Show current version of Xcode
-      run: xcodebuild -version
     - name: Run tests
-      run: cd ios && xcodebuild test -scheme Networking
+      run: xcodebuild test -scheme Networking
+      working-directory: ios
+  test:
+    - name: run more tests
+      run: xcodebuild test -scheme Buildings
+      working-directory: ios
