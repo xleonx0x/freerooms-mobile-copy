@@ -8,21 +8,36 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    name: Build project
+  lint:
+    name: Run lint
+    runs-on: macos-15
+    steps:
+    - uses: actions/checkout@v4
+    - name: run lint
+      run: swiftlint .
+  tests:
+    name: Run tests
     runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
     - name: Set up Xcode version
       run: sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
-    - name: Run tests
+    - name: Run Networking tests
       run: xcodebuild test -scheme Networking
       working-directory: ios
-  test:
-    name: yo
-    runs-on: macos-15
-    steps:
-    - uses: actions/checkout@v4
-    - name: run more tests
+    - name: Run Location tests
+      run: xcodebuild test -scheme Location
+      working-directory: ios
+    - name: Run Buildings tests
       run: xcodebuild test -scheme Buildings
       working-directory: ios
+    build:
+      name: Run build
+      runs-on: macos-15
+      steps:
+      - uses: actions/checkout@v4
+      - name: Set up Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
+      - name: build swift project
+        run: xcodebuild
+        working-directory: ios
