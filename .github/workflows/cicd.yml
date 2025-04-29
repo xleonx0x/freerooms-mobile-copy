@@ -1,7 +1,6 @@
 name: Freerooms CI/CD
 
 on:
-  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
@@ -18,7 +17,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: GitHub Action for SwiftLint
       uses: norio-nomura/action-swiftlint@3.2.1
-      working-directory: ios
+      env:
+        WORKING_DIRECTORY: ios
   tests:
     name: Run tests
     runs-on: macos-15
