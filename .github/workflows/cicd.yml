@@ -19,6 +19,9 @@ jobs:
       run: xcodebuild test -scheme Networking
       working-directory: ios
   test:
+    name: yo
+    runs-on: macos-15
+    steps:
     - name: run more tests
       run: xcodebuild test -scheme Buildings
       working-directory: ios
