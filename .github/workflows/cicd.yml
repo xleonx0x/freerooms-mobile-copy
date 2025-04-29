@@ -13,4 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build
-      run: cd ios/Networking && swift build && swift test
+      run: swift build --build-tests
+    - name: Test
+      run: swift test --skip-build
