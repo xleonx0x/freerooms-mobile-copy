@@ -23,7 +23,6 @@ jobs:
     runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Xcode version
     - name: run more tests
       run: xcodebuild test -scheme Buildings
       working-directory: ios
