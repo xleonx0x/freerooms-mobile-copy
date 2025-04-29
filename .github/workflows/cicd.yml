@@ -8,11 +8,9 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: macos-15
     container: swift:6.1
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: cd ios/Networking && swift build --build-tests
     - name: Test
-      run: cd ios/Networking && swift test --skip-build
+      run: cd ios && xcodebuild test -scheme Networkingachmen
