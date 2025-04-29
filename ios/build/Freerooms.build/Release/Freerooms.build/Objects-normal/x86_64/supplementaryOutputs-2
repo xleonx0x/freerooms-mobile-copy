@@ -1,9 +1,9 @@
-"/Users/cw/repos/freerooms-mobile-copy/ios/Freerooms/FreeroomsApp.swift":
+"/Users/cw/repos/freerooms-mobile-copy/ios/Freerooms/ContentView.swift":
   objc-header: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms-Swift.h"
-  swiftmodule: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.swiftmodule"
-  dependencies: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms-master.d"
-  abi-baseline-json: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.abi.json"
-  swiftsourceinfo: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.swiftsourceinfo"
-  swiftdoc: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.swiftdoc"
-  diagnostics: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms-master.dia"
   const-values: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms-master.swiftconstvalues"
+  swiftmodule: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.swiftmodule"
+  swiftsourceinfo: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.swiftsourceinfo"
+  diagnostics: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms-master.dia"
+  dependencies: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms-master.d"
+  swiftdoc: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.swiftdoc"
+  abi-baseline-json: "/Users/cw/repos/freerooms-mobile-copy/ios/build/Freerooms.build/Release/Freerooms.build/Objects-normal/x86_64/Freerooms.abi.json"
