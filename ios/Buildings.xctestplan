@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "DFBC87A5-2A6C-4EF0-936E-E2DE1D29EF2D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "BuildingsTests",
+        "name" : "BuildingsTests"
+      }
+    }
+  ],
+  "version" : 1
+}
