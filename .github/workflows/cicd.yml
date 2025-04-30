@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -23,22 +21,20 @@ defaults:
 jobs:
   lint:
     name: Lint
-    runs-on: ubuntu-24.04
+    runs-on: norionomura/swiftlint
+    container: swift:6.1-noble
     timeout-minutes: 5
     steps:
       # SHA to v4
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-    - name: GitHub Action for SwiftLint
-      # SHA to 3.2.1
-      uses: norio-nomura/action-swiftlint@9f4dcd7fd46b4e75d7935cf2f4df406d5cae3684
-      with:
-        args: --strict
+    - name: Lint
+      run: swiftlint --strict
   tests:
     name: Tests
     runs-on: macos-15
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
     - name: Run Networking tests
       run: xcodebuild test -scheme Networking
       if: always()
@@ -53,6 +49,6 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 5
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
     - name: Build swift project
       run: xcodebuild
