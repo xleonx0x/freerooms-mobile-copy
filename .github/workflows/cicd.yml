@@ -24,7 +24,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-24.04
-    container: swift:6.1-noble
+    container: norionomura/swiftlint
     timeout-minutes: 5
     steps:
       # SHA to v4
